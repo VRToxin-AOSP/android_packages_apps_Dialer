@@ -116,4 +116,8 @@
     <color name="call_log_header_color_dark">#FFFFFF</color>
     <color name="dialpad_text_color">#FFFFFF</color>
     <color name="keyguard_preview_bg">#ffffff</color>
+
+    <!-- Color for call log blacklist item -->
+    <color name="call_log_action_block_red">#F44336</color>
+    <color name="call_log_action_block_gray">#616161</color>
 </resources>
