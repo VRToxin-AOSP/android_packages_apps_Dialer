@@ -117,4 +117,8 @@
     <color name="call_log_header_color_dark">@*android:color/material_grey_850</color>
     <color name="dialpad_text_color">#FFFFFF</color>
     <color name="keyguard_preview_bg">@*android:color/material_grey_800</color>
+
+    <!-- Block caller -->
+    <color name="call_log_action_block_gray">#ffffff</color>
+
 </resources>
