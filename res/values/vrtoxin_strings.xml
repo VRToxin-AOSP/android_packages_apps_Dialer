@@ -63,4 +63,7 @@
     <string name="call_log_action_block">Block caller</string>
     <string name="call_log_action_unblock">Caller blocked</string>
 
+    <!-- Dialer Lookup -->
+    <string name="dialer_lookup_search_hint">Search contacts, places or phone numbers</string>
+
 </resources>
