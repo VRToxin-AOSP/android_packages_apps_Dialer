@@ -26,9 +26,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Trace;
+import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
 import android.speech.RecognizerIntent;
 import android.support.v4.view.ViewPager;
@@ -117,6 +119,7 @@ public class DialtactsActivity extends TransactionSafeActivity implements View.O
     public static final boolean DEBUG = false;
 
     public static final String SHARED_PREFS_NAME = "com.android.dialer_preferences";
+    private static final String PREF_SHOW_DIALPAD_AT_START = "show_dialpad_at_start";
 
     /** @see #getCallOrigin() */
     private static final String CALL_ORIGIN_DIALTACTS =
@@ -503,7 +506,13 @@ public class DialtactsActivity extends TransactionSafeActivity implements View.O
 
         mStateSaved = false;
         if (mFirstLaunch) {
-            displayFragment(getIntent());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean showDialpadAtStart = prefs.getBoolean(PREF_SHOW_DIALPAD_AT_START, false);
+            if (showDialpadAtStart) {
+                showDialpadFragment(false);
+            } else {
+                displayFragment(getIntent());
+            }
         } else if (!phoneIsInUse() && mInCallDialpadUp) {
             hideDialpadFragment(false, true);
             mInCallDialpadUp = false;
